@@ -58,3 +58,23 @@ func updateSlice( s []string) {
 * value typeとreference type
   * Value Types（関数に渡すときにポインタに注意）: int, float, string, bool, structs
   * Reference Types（関数に渡すときにポインタ考慮は不要）: slices, maps, channels, pointers, functions
+
+* Map
+  * keyは全て同じタイプ
+  * valueも全て同じタイプ（keyと異なって良い）
+
+* Mapとstructの違い
+  * Map
+    * キーの型は全て同じ
+    * バリューの型も全て同じ
+    * キーはインデックスされ、イテレート可能
+    * リファレンスタイプ（関数に参照で渡される）
+    * 関連する属性の集合を表現
+    * コンパイル時に全てのキーが決まっていなくて良い（実行時追加削除変更可能）
+
+  * Struct
+    * バリューの型は異なって良い
+    * キーはインデックスされない
+    * バリュータイプ（関数に値渡し）
+    * コンパイル時にフィールドは決まっていなければならない
+    * 様々な属性を持つ"thing"を表現

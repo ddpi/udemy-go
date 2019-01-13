@@ -91,4 +91,7 @@ func updateSlice( s []string) {
 * interfaceはgeneric typeではない（Javaとは違う）
 * interfaceは暗黙的である（自動的に判断される）
 * interfaceはcontractであり、型管理を助ける（セマンティクスを実装者が管理しなければならない）
-* 
+  
+
+### https://golang.org/pkg/io/#Reader
+* Reader interface 様々な入力を[]byteとして出力し、汎用的に扱えるようにする

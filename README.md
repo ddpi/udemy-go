@@ -20,4 +20,41 @@ func (d deck) print() {
 ```
   * d は他の言語のthisやself
 * rangeの使わない返り値は_で受ける
-* 
+* structはCの構造体っぽい
+* ポインタが重要
+  * Pass by Valueされる
+  * レシーバーで受け取るのはコピーされた値
+  * & 参照、 * ポインタ　（C++との違いはあるのか？）
+  * *addressでaddressをvalueに変換
+  * &valueでvalueをaddressに変換
+  
+```
+func (pointerToPerson *person) updateName(newFirstName string) { // *はtype description(a pointer to a person)
+	(*pointerToPerson).firstName = newFirstName // *はオペレータ、*によってポインタが指す値を得る。2つの*の意味が異なることに注意
+}
+```
+
+* https://play.golang.org でテスト可能
+
+* sliceはarrayへのポインタを内部構造で保持（pointer to head, capacity, lengthを管理）
+  * sliceを引数でわたすと、sliceのデータ構造がコピーして渡される
+  * s[0]などのインデックスはarray要素へのポインタ
+```
+func main() {
+  mySlice := []string{"Hi", "There", "How", "Are", "You"}
+  updateSlice(mySliece)
+  fmt.Println(mySlice)
+}
+
+func updateSlice( s []string) {
+  s[0] = "Bye"
+}
+
+--->
+
+[Bye There How Are You]  // なぜ？
+```
+
+* value typeとreference type
+  * Value Types（関数に渡すときにポインタに注意）: int, float, string, bool, structs
+  * Reference Types（関数に渡すときにポインタ考慮は不要）: slices, maps, channels, pointers, functions

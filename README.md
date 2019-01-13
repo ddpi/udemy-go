@@ -59,7 +59,7 @@ func updateSlice( s []string) {
   * Value Types（関数に渡すときにポインタに注意）: int, float, string, bool, structs
   * Reference Types（関数に渡すときにポインタ考慮は不要）: slices, maps, channels, pointers, functions
 
-* Map
+## Map
   * keyは全て同じタイプ
   * valueも全て同じタイプ（keyと異なって良い）
 
@@ -78,3 +78,17 @@ func updateSlice( s []string) {
     * バリュータイプ（関数に値渡し）
     * コンパイル時にフィールドは決まっていなければならない
     * 様々な属性を持つ"thing"を表現
+
+## Interfaces
+
+* Go: 型付言語 → 様々な型に適用可能な関数は？
+* 引数が異なっていても、同名の関数は作れない
+* interfaceに関数を宣言。その関数を実装するstructはinterfaceのメンバーとなる
+* interfaceのメンバーになるのは関数のシグネチャ（引数、返り値）まで同じでなければならない
+* Concrete TypeとInterface Type
+  * Concrete Type: 値を作成できる (map, struct, int, string,,, eg. englishBot)
+  * Interface Type: 値を作成できない (eg. bot)
+* interfaceはgeneric typeではない（Javaとは違う）
+* interfaceは暗黙的である（自動的に判断される）
+* interfaceはcontractであり、型管理を助ける（セマンティクスを実装者が管理しなければならない）
+* 

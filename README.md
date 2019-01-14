@@ -99,3 +99,15 @@ func updateSlice( s []string) {
 
 
 * プログラム引数はos.Argsで受け取る
+
+## 並行処理
+* routines, channels
+* Go Routines: コード実行エンジン（1行ごと実行）
+* goキーワードでRoutineを生成
+* routine中のBlocking処理で処理を親のroutineに戻す
+* Concurrency is not Parallelism
+* Concurrency：複数スレッドを実行可能。一つのスレッドがブロックされると別のスレッドが選択され実行される
+* Parallelism：複数スレッドが同時に実行可能。複数CPUが必要
+* mainのroutineは子のroutineが実行されていても終了する（待たない）
+* Channel: Routine間のやりとり
+* 関数リテラルの定義、引数の値渡し

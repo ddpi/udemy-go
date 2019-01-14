@@ -95,3 +95,7 @@ func updateSlice( s []string) {
 
 ### https://golang.org/pkg/io/#Reader
 * Reader interface 様々な入力を[]byteとして出力し、汎用的に扱えるようにする
+* FileはReaderを実装
+
+
+* プログラム引数はos.Argsで受け取る
